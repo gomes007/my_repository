@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'sistemapg'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_78BD1665217347AAA4F91DDCFCC2F4EA }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D4230DA2FC9F4FCDB1BB3931F70B87C4 }}
           package: '*.jar'
