@@ -1,4 +1,4 @@
-name: Build and deploy Java app to Azure Web App
+name: Deploy Java app to Azure Web App
 
 on:
   push:
@@ -6,21 +6,12 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-
-    - name: Set up Java
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'
-        distribution: 'adopt'
-
-    - name: Build with Maven
-      run: mvn clean package
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
@@ -28,4 +19,4 @@ jobs:
         app-name: sistemapg
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_<your-web-app-name> }}
-        package: '${{ github.workspace }}/target/meusistema-1.0-SNAPSHOT.jar'
+        package: '${{ github.workspace }}/meusistema-1.0-SNAPSHOT.jar'
